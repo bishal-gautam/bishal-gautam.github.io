@@ -449,7 +449,10 @@
         <h2>Get in Touch</h2>
         
         <!-- Contact Form -->
-        <form id="contact-form" action="https://formspree.io/f/xojnkrew" method="POST" class="contact-form">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <input type="hidden" name="access_key" value="c0592fa9-f437-43cd-9639-ab4b98a8f288">
+            <input type="hidden" name="subject" value="New Contact from bishal-gautam.github.io">
+            <input type="checkbox" name="botcheck" style="display: none;">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Your Name" required>
             </div>
