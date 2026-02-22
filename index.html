@@ -1,101 +1,417 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+    <meta name="description" content="Bishal Gautam - Software Engineer at Microsoft">
+    <title>Bishal Gautam | Software Engineer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0078d4;
+            --primary-dark: #106ebe;
+            --bg: #0a0a0a;
+            --bg-secondary: #151515;
+            --bg-card: #1a1a1a;
+            --text: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border: #2a2a2a;
+            --accent: #60cdff;
+        }
 
-    <title>Bishal Gautam</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
+        a:hover {
+            color: var(--primary);
+        }
 
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/js/hover.zoom.js"></script>
-    <script src="assets/js/hover.zoom.conf.js"></script>
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  </head>
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
 
-  <body>
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
 
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">HELLO WORLD</a>
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, var(--bg) 50%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(0, 120, 212, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .bio {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .card-date {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-logo">Bishal Gautam</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
-      </div>
-    </div>
+    </nav>
 
-	<!-- +++++ Welcome Section +++++ -->
-	<div id="ww">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 centered">
-					<img src="assets/img/profile.jpg" alt="Stanley">
-					<h1>I am Bishal!</h1>
-					<p>I am a Backend Software Engineer at Careem (a subsidiary of Uber - ride hailing company) and I am working mainly in Java and AWS infrastruture. </p>
-					<p>Please feel free to visit to <a href="https://bishalg.blogspot.com/" target="_blank"> my personal blog</a> to be updated with my latest blog posts on different topics in computer science.</p>
-				</div><!-- /col-lg-8 -->
-			</div><!-- /row -->
-	    </div> <!-- /container -->
-	</div><!-- /ww -->
-	
-	
-	<!-- +++++ Footer Section +++++ -->
-	
-	<div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<h4>My Address</h4>
-					<p>
-						Einbecker Str, 10315<br/>
-						Berlin, Germany.
-					</p>
-				</div><!-- /col-lg-4 -->
-				
-				<div class="col-lg-4">
-					<h4>My Links</h4>
-					<p>
-						<a href="https://github.com/bishal-gautam" target="_blank">Github</a> </br>
-						<a href="https://stackoverflow.com/users/4763182/bishalg" target="_blank">Stackoverflow</a><br/>
-						<a href="https://www.linkedin.com/in/bishal-gautam/" target="_blank">Linkedin</a>
-					</p>
-				</div><!-- /col-lg-4 -->
-				
-				<div class="col-lg-4">
-					<h4>Contact</h4>
-          <p>Email: bishalg.tech@gmail.com</p>
-          <p>© Site template: <a href="https://templatemag.com/stanley-bootstrap-freelancer-template/" target="_blank">Stanley</a></p>
-				</div><!-- /col-lg-4 -->
-			
-			</div>
-		
-		</div>
-	</div>
-	
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/img/profile.jpg" alt="Bishal Gautam" class="profile-img">
+            <h1>Bishal Gautam</h1>
+            <p class="title">Software Engineer at Microsoft</p>
+            <p class="bio">
+                Passionate Software Engineer with a Master's in Computer Science. 
+                Building scalable systems with Java and AWS. Formerly at Careem (Uber subsidiary).
+                Love teaching and contributing to the tech community.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/bishal-gautam" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/bishal-gautam/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://stackoverflow.com/users/4763182/bishalg" target="_blank" aria-label="Stack Overflow">
+                    <i class="fab fa-stack-overflow"></i>
+                </a>
+                <a href="mailto:bishalg.tech@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.min.js"></script>
-  </body>
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Software Engineer</div>
+                    <div class="card-subtitle">Microsoft</div>
+                </div>
+                <div class="card-date">Present</div>
+            </div>
+            <p>Building innovative solutions at Microsoft.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Backend Software Engineer</div>
+                    <div class="card-subtitle">Careem (Uber Subsidiary)</div>
+                </div>
+                <div class="card-date">Previously</div>
+            </div>
+            <p>Working primarily in Java and AWS infrastructure for the ride-hailing platform.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Java Programming Trainer</div>
+                    <div class="card-subtitle">ReDI School of Digital Integration</div>
+                </div>
+                <div class="card-date">Jul 2019 - Feb 2020</div>
+            </div>
+            <p>Volunteer teaching Java to students with refugee backgrounds at the Berlin branch.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Software Engineering</span>
+            <span class="skill-tag">Backend Development</span>
+            <span class="skill-tag">Cloud Infrastructure</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Problem Solving</span>
+        </div>
+    </section>
+
+    <section id="volunteering">
+        <h2>Volunteering & Community</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Problem Curator</div>
+                    <div class="card-subtitle">HackerEarth</div>
+                </div>
+                <div class="card-date">Jan 2018 - Jan 2019</div>
+            </div>
+            <p>Created algorithmic problems for contests and hiring challenges. Wrote editorials for monthly challenges.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Problem Setter & Judge</div>
+                    <div class="card-subtitle">Various Programming Contests</div>
+                </div>
+                <div class="card-date">2017 - 2019</div>
+            </div>
+            <p>Set problems for national-level contests including NGPC 2019, LU National ICT Fest, IUT 10th ICT Fest, and more.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <p>bishalg.tech@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <p>@bishal-gautam</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <p>linkedin.com/in/bishal-gautam</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Bishal Gautam. Built with modern web technologies.</p>
+    </footer>
+</body>
 </html>
